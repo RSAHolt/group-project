@@ -1,25 +1,29 @@
 <template >
     <div id="search employee">
-            <input :value="spice" type="number" name="empid" id="empid">
+            <input  type="number" v-model="num" name="empid" id="empid">
             <button @click="switcha">Search</button>
         
     </div>
     <div v-if="bool" id="displayBlock" >
-
-        <div id="companyDetails">
-            test
+        <div v-for="item,index in payson.payrollData" :key="item"  >
+            <div v-if="item.employeeId == num" >
+            <div id="companyDetails">
+               
+            </div>
+            <div id="employeeDetails">
+               Employee ID: {{item.employeeId}}
+                
+            </div>
+            <div id="paymentDetails">
+                
+            </div>
+            <div id="earnings">
+                
+            </div>
+            <div id="deductions">
+                
+            </div>
         </div>
-        <div id="employeeDetails">
-            one
-        </div>
-        <div id="paymentDetails">
-            {{ payson.payrollData[spice]}}
-        </div>
-        <div id="earnings">
-            
-        </div>
-        <div id="deductions">
-            
         </div>
 
     </div>
@@ -29,17 +33,24 @@
 import json from '@/data/payroll_data.json'
 export default {
     value:{
-        spice: Number
+        spice: 0
     },
     data() {
         return {
             payson:json,
-            bool:false
+            bool:true,
         }
     },
     methods:{
         switcha(){
-            this.bool =true
+            this.bool =!this.bool
+            this.bool=!this.bool
+        }
+    },
+    computed:{
+        displayp(){
+           let p = document.getElementById('empid')
+            return p.value
         }
     }
 }
