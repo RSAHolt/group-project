@@ -1,5 +1,10 @@
 <template >
-    <div >
+    <div id="search employee">
+            <input :value="spice" type="number" name="empid" id="empid">
+            <button @click="switcha">Search</button>
+        
+    </div>
+    <div v-if="bool" id="displayBlock" >
 
         <div id="companyDetails">
             test
@@ -8,7 +13,7 @@
             one
         </div>
         <div id="paymentDetails">
-            
+            {{ payson.payrollData[spice]}}
         </div>
         <div id="earnings">
             
@@ -23,11 +28,20 @@
 <script>
 import json from '@/data/payroll_data.json'
 export default {
+    value:{
+        spice: Number
+    },
     data() {
         return {
-            payson:json
+            payson:json,
+            bool:false
         }
     },
+    methods:{
+        switcha(){
+            this.bool =true
+        }
+    }
 }
 </script>
 <style >
