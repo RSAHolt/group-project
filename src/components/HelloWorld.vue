@@ -5,8 +5,8 @@
   <div id="app">
         <attendance-tracker></attendance-tracker>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    <script src="js/app.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+    <!-- <script src="js/app.js"></script> -->
 </template>
 <script>
 export default {
