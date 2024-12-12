@@ -93,7 +93,7 @@ export const dummyData = {
     ]
 }
 
-    attendanceData: {
-        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'];
-        data: [5, 3, 4, 2] // Example attendance data
+    {
+        ['Week 1', 'Week 2', 'Week 3', 'Week 4'];
+        [5, 3, 4, 2] // Example attendance data
     }
