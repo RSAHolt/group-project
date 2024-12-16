@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar sticky-top bg-body-tertiary border-bottom border-body" id="nav" data-bs-theme="dark">
+  <nav v-if="log" class="navbar sticky-top bg-body-tertiary border-bottom border-body" id="nav" data-bs-theme="dark">
     <div class="container-fluid d-flex justify-content-center">
       <a class="navbar-brand" href="#home">Navbar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,7 +8,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link to="/home">Home</router-link>
+            <router-link to="/">Home</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/pay">Payslip Summary</router-link>
@@ -41,14 +41,26 @@
       </div>
     </div>
   </nav>
-  <router-view/>
+  <router-view v-if="log"/>
+  <div id="login">
+    <!-- Show Login Component only when not logged in -->
+    <LogIn v-if="!log" @login-success="handleLoginSuccess" />
+
+  
+  </div>
 </template>
 
 <script>
+import LogIn from './components/LogIn.vue';
 export default {
+  components:{
+    LogIn,
+ 
+  },
   data() {
     return {
-      timeOffRequests: [] // Track time-off requests
+      timeOffRequests: [], // Track time-off requests
+      log:false
     };
   },
   methods: {
@@ -72,6 +84,12 @@ export default {
       } else {
         console.log(`No request found at index ${index}.`);
       }
+    },
+    handleLoginSuccess() {
+      this.log = true; // Set the login state to true on successful login
+    },
+    logout() {
+      this.log = false; // Set the login state to false when logging out
     }
   }
 }
@@ -84,6 +102,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  
 }
 
 nav {
@@ -98,7 +117,11 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
-template{
+#login{
   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
 }
+
 </style>

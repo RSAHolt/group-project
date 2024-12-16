@@ -13,7 +13,7 @@
 
   <div class="login_form">
     <!-- Login form container -->
-    <form action="#">
+    <form @submit.prevent="login">
       <h3>Log in with</h3>
       <div class="login_option">
         <!-- Google button -->
@@ -41,7 +41,7 @@
       <!-- Email input box -->
       <div class="input_box">
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Enter email address" required />
+        <input type="email" id="email" v-model="username" placeholder="Enter email address" required />
       </div>
 
       <!-- Paswwrod input box -->
@@ -50,12 +50,15 @@
           <label for="password">Password</label>
           <a href="#">Forgot Password?</a>
         </div>
-        <input type="password" id="password" placeholder="Enter your password" required />
+        <input type="password" id="password" v-model="password" placeholder="Enter your password" required />
       </div>
 
        <!-- Login button -->
       <button type="submit">Log In</button>
       <p class="sign_up">Don't have an account? <a href="#">Sign up</a></p>
+      
+      <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
+    
     </form>
   </div>
 
@@ -65,7 +68,25 @@
 </template>
 <script>
 export default {
+  data() {
+    return {
+      username: '',
+      password: '',
+      errorMessage: ''
+    };
     
+},
+methods: {
+    login() {
+      // You can replace this with your real authentication logic
+      if (this.username === 'user@example.com' && this.password === 'password') {
+        // Simulate successful login
+        this.$emit('login-success'); // Emit an event to the parent to update login state
+      } else {
+        this.errorMessage = 'Invalid username or password!';
+      }
+    }
+  }
 }
 </script>
 <style scoped  >

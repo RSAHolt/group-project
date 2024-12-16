@@ -1,19 +1,20 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <LogIn/>
+    <h2>Welcome to the Main App!</h2>
+      <p>Here is some protected content.</p>
+      <button @click="logout">Logout</button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-import LogIn from '@/components/LogIn.vue';
+
 
 export default {
   name: 'HomeView',
   components: {
-    LogIn
+  
   }
 }
 </script>

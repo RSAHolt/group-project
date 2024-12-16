@@ -5,7 +5,7 @@ import AttendanceTracker from '@/components/AttendanceTracker.vue'
 
 const routes = [
   {
-    path: '/home',
+    path: '/',
     name: 'home',
     component: HomeView
   },
