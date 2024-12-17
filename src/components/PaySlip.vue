@@ -9,7 +9,7 @@
         
     </div>
     <div v-if="bool"  >
-        <div v-for="item, in payson.payrollData" :key="item"  >
+        <div v-for="item, in payson.merge" :key="item"  >
             <div v-if="item.employeeId == num" >
             <div id="heading">
                 <h2>Payslip</h2>
@@ -23,9 +23,9 @@
             </div>
             <div id="employeeDetails">
               <p>  Employee ID: {{item.employeeId}} </p>
-              <p>  Employee Name: </p>
-              <p>  Employee Position: </p>
-              <p>  Employee Department: </p>
+              <p>  Employee Name: {{ item.name }} </p>
+              <p>  Employee Position: {{ item. }} </p>
+              <p>  Employee Department: {{ item. }} </p>
 
             </div>
             <div id="paymentDetails">
@@ -34,16 +34,16 @@
               <p>  Account Type: </p>
               <p>  Account No: </p>
               <p>  Branch Code: </p>
-              <p>  Hourly Rate: </p>
+              <p>  Hourly Rate: {{ item. }} </p>
             </div>
             <div id="earnings">
-              <p>  Salary: </p>
+              <p>  Salary: {{ item. }} </p>
             </div>
             <div id="deductions">
-               <p> Leave Days: </p>
+               <p> Leave Days: {{ item. }} </p>
             </div>
             <div id="netPay">
-               <p> Nett Pay: </p>
+               <p> Nett Pay: {{ item. }} </p>
             </div>
             <div>
                 <button>Print Payslip</button>
@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import json from '@/data/payroll_data.json'
+import json from '@/data/merged_data.json'
 export default {
     data() {
     return {
