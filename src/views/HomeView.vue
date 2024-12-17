@@ -3,6 +3,7 @@
     <img alt="Vue logo" src="../assets/logo.png">
     <h2>Welcome to the Main App!</h2>
       <p>Here is some protected content.</p>
+      
       <button @click="logout">Logout</button>
   </div>
 </template>
@@ -15,6 +16,16 @@ export default {
   name: 'HomeView',
   components: {
   
-  }
+  },
+  methods:{
+    logout() {
+      this.$store.state.log= false; // Set the login state to false when logging out
+    }
+  },
+  // data() {
+  //   return {
+  //     log:false
+  //   }
+  // },
 }
 </script>
