@@ -45,11 +45,12 @@
       </div>
     </div>
   </nav>
+  <div class="back">
   <router-view v-if="this.$store.state.log"/>
   <div id="login">
     <!-- Show Login Component only when not logged in -->
     <LogIn v-if="!this.$store.state.log" @login-success="handleLoginSuccess" />
-
+  </div>
   
   </div>
 </template>
@@ -126,6 +127,11 @@ nav a.router-link-exact-active {
   justify-content: center;
   align-items: center;
   height: 100vh; /* Full viewport height */
+}
+.back{
+background-image: url("https://media.istockphoto.com/id/1405753437/vector/simple-logo-design.jpg?s=612x612&w=0&k=20&c=Y6vrA9Z4Dl_cqCylROUwp5bWSBQ7BNDgudXRDLCpabI=");
+background-repeat: no-repeat;
+background-size: 100% 100%;
 }
 
 </style>
