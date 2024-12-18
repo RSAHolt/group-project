@@ -1,5 +1,5 @@
 <template>
-  <nav v-if="log" class="navbar sticky-top bg-body-tertiary border-bottom border-body" id="nav" data-bs-theme="dark">
+  <nav v-if="this.$store.state.log" class="navbar sticky-top bg-body-tertiary border-bottom border-body" id="nav" data-bs-theme="dark">
     <div class="container-fluid d-flex justify-content-center">
       <a class="navbar-brand" href="#home">Navbar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,6 +19,7 @@
           <li>
             <router-link to="/attendtrack">Attendance-Tracker</router-link>|
           </li>
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown
@@ -33,6 +34,9 @@
           <li class="nav-item">
             <a class="nav-link disabled" aria-disabled="true">Disabled</a>
           </li>
+          <li>
+            <button @click="logout">Logout</button>
+          </li>
         </ul>
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -41,11 +45,12 @@
       </div>
     </div>
   </nav>
-  <router-view v-if="log"/>
+  <div class="back">
+  <router-view v-if="this.$store.state.log"/>
   <div id="login">
     <!-- Show Login Component only when not logged in -->
-    <LogIn v-if="!log" @login-success="handleLoginSuccess" />
-
+    <LogIn v-if="!this.$store.state.log" @login-success="handleLoginSuccess" />
+  </div>
   
   </div>
 </template>
@@ -86,10 +91,10 @@ export default {
       }
     },
     handleLoginSuccess() {
-      this.log = true; // Set the login state to true on successful login
+    this.$store.state.log = true; // Set the login state to true on successful login
     },
     logout() {
-      this.log = false; // Set the login state to false when logging out
+      this.$store.state.log = false; // Set the login state to false when logging out
     }
   }
 }
@@ -123,6 +128,11 @@ nav a.router-link-exact-active {
   align-items: center;
   height: 100vh;
   background-image: url(https://www.openaccessgovernment.org/wp-content/uploads/2023/09/iStock-1222540826-scaled.jpg); /* Full viewport height */
+}
+.back{
+background-image: url("https://media.istockphoto.com/id/1405753437/vector/simple-logo-design.jpg?s=612x612&w=0&k=20&c=Y6vrA9Z4Dl_cqCylROUwp5bWSBQ7BNDgudXRDLCpabI=");
+background-repeat: no-repeat;
+background-size: 100% 100%;
 }
 
 </style>

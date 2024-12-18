@@ -9,12 +9,12 @@
         
     </div>
     <div v-if="bool"  >
-        <div v-for="item, in payson.payrollData" :key="item"  >
-            <div v-if="item.employeeId == num" >
+        <div v-for="item, in payson.merge" :key="item"  >
+            <div v-if="item.employeeId == num"  >
             <div id="heading">
                 <h2>Payslip</h2>
             </div>
-            <div id="displayBlock">
+            <div id="displayBlock" ref="document" >
             <div id="companyDetails">
               <p> Co. Name: ModernTech Solutions  </p>
               <p> Co. Address: 1st Floor, Cradock Heights, 22 Cradock Avenue Rosebank
@@ -23,41 +23,45 @@
             </div>
             <div id="employeeDetails">
               <p>  Employee ID: {{item.employeeId}} </p>
-              <p>  Employee Name: </p>
-              <p>  Employee Position: </p>
-              <p>  Employee Department: </p>
+              <p>  Employee Name: {{ item.name }} </p>
+              <p>  Employee Position: {{ item.position }} </p>
+              <p>  Employee Department: {{ item.department }} </p>
 
             </div>
             <div id="paymentDetails">
               <p>  Date Enaged:{{ da }} </p>
-              <p>  Bank Name: </p>
-              <p>  Account Type: </p>
-              <p>  Account No: </p>
-              <p>  Branch Code: </p>
-              <p>  Hourly Rate: </p>
+              <p>  Bank Name: Capitec </p>
+              <p>  Account Type: Cheque</p>
+              <p>  Account No: 4206911</p>
+              <p>  Branch Code: 470010 </p>
+              <p>  Hourly Rate: R{{ Math.round(item.salary/item.hoursWorked) }}/hr </p>
             </div>
             <div id="earnings">
-              <p>  Salary: </p>
+              <p>  Salary: R{{ item.salary }} </p>
             </div>
             <div id="deductions">
-               <p> Leave Days: </p>
+               <p> Leave Days: {{ item.leaveDeductions }} </p>
+               <p> Deducted: R{{ item.salary - item.finalSalary }}</p>
             </div>
             <div id="netPay">
-               <p> Nett Pay: </p>
+               <p> Nett Pay: R{{ item.finalSalary }} </p>
             </div>
-            <div>
-                <button>Print Payslip</button>
-            </div>
+            
+        </div>
+        <div>
+            <button @click="print">Download Payslip</button>
         </div>
         </div>
         </div>
 
     </div>
+    
     </body>
 </template>
 
 <script>
-import json from '@/data/payroll_data.json'
+import json from '@/data/merged_data.json';
+import html2pdf from "html2pdf.js";
 export default {
     data() {
     return {
@@ -69,12 +73,18 @@ export default {
     methods: {
     switcha() {
         this.bool = !this.bool; // Toggle the display boolean
-    }},
+    },
+    print(){
+        html2pdf(document.getElementById("displayBlock"),{
+            margin: 1,
+            filename:"payslip.pdf"
+        })
+            
+    }
+
+    },
     computed:{
-        displayp(){
-           let p = document.getElementById('empid')
-            return p.value
-        },
+
         da(){
             const date = new Date();//initializing the current date
 
@@ -87,20 +97,12 @@ export default {
 
             return `${day}/${month}/${year}`//using f-string literal to display info when 'da()' is called.
         }
-        // daNext(){
-        //     const date = new Date();
-        //     const nextThree = date. setDate(date. getDate() + 3)
-        //     let day = date.getDate();
-        //     let month = date.getMonth() + 1;
-        //     let year = date.getFullYear();
-        // return nextThree+'/'+month+'/'+year
-        // }
+   
     }}
 </script>
 <style scoped >
 body{
     max-width: 800px;
-    border: 1x solid rgb(157, 157, 157);
     overflow:hidden;
     justify-content:center ;
     margin-left: auto;
@@ -108,15 +110,19 @@ body{
 }
 #displayBlock{
     background-color: rgb(206, 196, 196);
+    justify-content: space-between;
+    min-width: 800px;
+    
 }
 #companyDetails{
-    padding-top: 50px;
+    padding-top: 10px;
     width:400px;
     height:200px;
     float:left;
     border-width:1px;
     border-style:solid;
     border-color:black;
+
 }
 #employeeDetails{
     padding-top: 20px;
@@ -126,26 +132,36 @@ body{
     border-width:1px;
     border-style:solid;
     border-color:black;
+
 }
 #paymentDetails{
     display:block;
     border-width:1px;
     border-style:solid;
     border-color:black;
+
 }
 #earnings{
     border-width:1px;
     border-style:solid;
     border-color:black;
+
 }
 #deductions{
     border-width:1px;
     border-style:solid;
     border-color:black;
+    overflow:hidden;
 }
 #netPay{
     border-width:1px;
     border-style:solid;
     border-color:black;
+
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 </style>
