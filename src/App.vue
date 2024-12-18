@@ -121,7 +121,8 @@ nav a.router-link-exact-active {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
+  background-image: url(https://www.openaccessgovernment.org/wp-content/uploads/2023/09/iStock-1222540826-scaled.jpg); /* Full viewport height */
 }
 
 </style>
