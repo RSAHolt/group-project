@@ -29,6 +29,11 @@ export default {
   // },
 }
 </script>
-<style>
-
+<style scoped>
+h2 {
+  color: black;
+}
+p {
+  color: rgb(255, 20, 20);
+}
 </style>

@@ -20,7 +20,7 @@
             <router-link to="/attendtrack">Attendance-Tracker</router-link>|
           </li>
 
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown
             </a>
@@ -30,10 +30,10 @@
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
-          </li>
-          <li class="nav-item">
+          </li> -->
+          <!-- <li class="nav-item">
             <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-          </li>
+          </li> -->
           <li>
             <button @click="logout">Logout</button>
           </li>
@@ -127,10 +127,10 @@ nav a.router-link-exact-active {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url(https://www.openaccessgovernment.org/wp-content/uploads/2023/09/iStock-1222540826-scaled.jpg); /* Full viewport height */
+  background-image: url(); /* Full viewport height */
 }
 .back{
-background-image: url("https://media.istockphoto.com/id/1405753437/vector/simple-logo-design.jpg?s=612x612&w=0&k=20&c=Y6vrA9Z4Dl_cqCylROUwp5bWSBQ7BNDgudXRDLCpabI=");
+background-image: url(https://www.openaccessgovernment.org/wp-content/uploads/2023/09/iStock-1222540826-scaled.jpg);
 background-repeat: no-repeat;
 background-size: 100% 100%;
 }
