@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    log:false
   },
   getters: {
   },
@@ -12,3 +13,4 @@ export default createStore({
   modules: {
   }
 })
+

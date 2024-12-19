@@ -14,37 +14,18 @@
   <div class="login_form">
     <!-- Login form container -->
     <form @submit.prevent="login">
-      <h3>Log in with</h3>
-      <div class="login_option">
-        <!-- Google button -->
-        <div class="option">
-          <a href="#">
-            <img src="logos/Google-Logo.png" alt="Google" />
-            <span>Google</span>
-          </a>
-        </div>
-
-        <!-- Apple button -->
-        <div class="option">
-          <a href="#">
-            <img src="logos/Apple-Logo.jpg" alt="Apple" />
-            <span>Apple</span>
-          </a>
-        </div>
-      </div>
-
+      <h3>Modern Tech Solutions</h3>
+     
       <!-- Login option separator -->
-      <p class="separator">
-        <span>or</span>
-      </p>
+      <p class="separator"></p>
 
       <!-- Email input box -->
       <div class="input_box">
-        <label for="email">Email</label>
+        <label for="email">Employee email</label>
         <input type="email" id="email" v-model="username" placeholder="Enter email address" required />
       </div>
 
-      <!-- Paswwrod input box -->
+      <!-- Password input box -->
       <div class="input_box">
         <div class="password_title">
           <label for="password">Password</label>
@@ -55,10 +36,7 @@
 
        <!-- Login button -->
       <button type="submit">Log In</button>
-      <p class="sign_up">Don't have an account? <a href="#">Sign up</a></p>
-      
-      <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
-    
+
     </form>
   </div>
 
@@ -72,7 +50,8 @@ export default {
     return {
       username: '',
       password: '',
-      errorMessage: ''
+      errorMessage: '',
+      isForgotPassword: false
     };
     
 },
@@ -85,10 +64,16 @@ methods: {
       } else {
         this.errorMessage = 'Invalid username or password!';
       }
+    },
+    resetPassword(){
+      alert(`Password reset link sent to ${this.resetEmail}`)
+      this.toggleForgotPassword
     }
   }
 }
 </script>
+
+
 <style scoped  >
     /* Google Fonts Link */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
@@ -107,6 +92,7 @@ body {
     background: #626cd6;
     justify-content: center;
     align-items: center;
+
 }
 /* Login form styling */
 .login_form {
