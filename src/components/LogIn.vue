@@ -1,81 +1,106 @@
-<template >
+<template>
   <!DOCTYPE html>
-<html lang="en">
+  <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login Form</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
 
-  <div class="login_form">
-    <!-- Login form container -->
-    <form @submit.prevent="login">
-      <h3>Modern Tech Solutions</h3>
-     
-      <!-- Login option separator -->
-      <p class="separator"></p>
+    <div class="login_form">
+      <!-- Login form container -->
+      <form v-if="!isForgotPassword" @submit.prevent="login">
+        <h3>Modern Tech Solutions</h3>
 
-      <!-- Email input box -->
-      <div class="input_box">
-        <label for="email">Employee email</label>
-        <input type="email" id="email" v-model="username" placeholder="Enter email address" required />
-      </div>
+        <!-- Login option separator -->
+        <p class="separator"></p>
 
-      <!-- Password input box -->
-      <div class="input_box">
-        <div class="password_title">
-          <label for="password">Password</label>
-          <a href="#">Forgot Password?</a>
+        <!-- Email input box -->
+        <div class="input_box">
+          <label for="email">Employee email</label>
+          <input type="email" id="email" v-model="email" placeholder="Enter email address" required />
         </div>
-        <input type="password" id="password" v-model="password" placeholder="Enter your password" required />
-      </div>
 
-       <!-- Login button -->
-      <button type="submit">Log In</button>
+        <!-- Password input box -->
+        <div class="input_box">
+          <div class="password_title">
+            <label for="password">Password</label>
+          </div>
+          <input type="password" id="password" v-model="password" placeholder="Enter your password" required />
+        </div>
 
-    </form>
-  </div>
+        <!-- Error message -->
+        <div v-if="errorMessage" class="error-message">
+          <p>{{ errorMessage }}</p>
+        </div>
 
-</body>
+        <!-- Login button -->
+        <button type="submit">Log In</button>
+        <a href="#" @click.prevent="toggleForgotPassword">Forgot Password?</a>
 
-</html>
+      </form>
+
+      <!-- Forgot Password form -->
+      <form v-if="isForgotPassword" @submit.prevent="resetPassword">
+        <h3>Reset Password</h3>
+        
+        <p class="separator"></p>
+        
+        <div class="input_box">
+          <label for="reset-email">Enter your email to reset password</label>
+          <input type="email" id="reset-email" v-model="resetEmail" placeholder="Enter your email" required />
+        </div>
+        
+        <button type="submit">Send Reset Link</button>
+        <a href="#" @click.prevent="toggleForgotPassword">Back to Login</a>
+      </form>
+
+    </div>
+
+  </body>
+
+  </html>
 </template>
+
 <script>
 export default {
   data() {
     return {
-      username: '',
+      email: '',
       password: '',
+      resetEmail: '', // New field for reset email
       errorMessage: '',
       isForgotPassword: false
     };
-    
-},
-methods: {
+  },
+  methods: {
     login() {
       // You can replace this with your real authentication logic
-      if (this.username === 'user@example.com' && this.password === 'password') {
+      if (this.email === 'user@example.com' && this.password === 'password') {
         // Simulate successful login
         this.$emit('login-success'); // Emit an event to the parent to update login state
+        this.errorMessage = ''; // Clear error message on successful login
       } else {
-        this.errorMessage = 'Invalid username or password!';
+        this.errorMessage = 'Invalid email address or password!';
       }
     },
-    resetPassword(){
-      alert(`Password reset link sent to ${this.resetEmail}`)
-      this.toggleForgotPassword
+    toggleForgotPassword() {
+      this.isForgotPassword = !this.isForgotPassword;
+    },
+    resetPassword() {
+      // Simulate password reset logic
+      alert(`Password reset link sent to ${this.resetEmail}`);
+      this.toggleForgotPassword(); // Switch back to the login form
     }
   }
 }
 </script>
-
-
-<style scoped  >
-    /* Google Fonts Link */
+<style scoped>
+/* Google Fonts Link */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 /* Resetting default styling and setting font-family */
 * {
@@ -89,10 +114,9 @@ body {
     min-height: 100vh;
     padding: 0 10px;
     display: flex;
-    background: #626cd6;
+    background:transparent;
     justify-content: center;
     align-items: center;
-
 }
 /* Login form styling */
 .login_form {
@@ -219,5 +243,13 @@ form button {
 }
 form button:hover {
     background: #4954d0;
+}
+
+/* Error message styling */
+.error-message {
+    color: #ff4d4d;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 </style>
