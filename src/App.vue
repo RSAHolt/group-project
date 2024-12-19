@@ -126,10 +126,11 @@ nav a.router-link-exact-active {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
+  background-image: url(); /* Full viewport height */
 }
 .back{
-background-image: url("https://media.istockphoto.com/id/1405753437/vector/simple-logo-design.jpg?s=612x612&w=0&k=20&c=Y6vrA9Z4Dl_cqCylROUwp5bWSBQ7BNDgudXRDLCpabI=");
+background-image: url(https://www.openaccessgovernment.org/wp-content/uploads/2023/09/iStock-1222540826-scaled.jpg);
 background-repeat: no-repeat;
 background-size: 100% 100%;
 }
