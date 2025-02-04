@@ -90,7 +90,7 @@ export default {
     },
     toggleForgotPassword() {
       this.isForgotPassword = !this.isForgotPassword;
-    },
+    },  
     resetPassword() {
       // Simulate password reset logic
       alert(`Password reset link sent to ${this.resetEmail}`);
