@@ -1,6 +1,7 @@
 <template>
     <div>
         <h2>Attendance Tracker</h2>
+        <EmployeeAttendance/>
         <time-off-request @submit-request="submitRequest"></time-off-request>
         <div v-for="(request, index) in timeOffRequests" :key="index">
             <p>{{ request.employeeId }} - {{ request.date }}: {{ request.status }}</p>
@@ -12,10 +13,13 @@
 
 <script>
 import TimeOffRequest from './TimeOffRequest.vue';
+import EmployeeAttendance from './EmployeeAttendance.vue';
+
 
 export default {
     components: {
-        TimeOffRequest
+        TimeOffRequest,
+        EmployeeAttendance
     },
     data() {
         return {
@@ -40,4 +44,7 @@ export default {
 
 <style scoped>
 /* Styles specific to AttendanceTracker */
+table{
+    color: white;
+}
 </style>

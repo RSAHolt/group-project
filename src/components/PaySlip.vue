@@ -60,14 +60,14 @@
 </template>
 
 <script>
-import json from '@/data/merged_data.json';
-import html2pdf from "html2pdf.js";
+import json from '@/data/merged_data.json';//import the merged_data json for data manipulation
+import html2pdf from "html2pdf.js";//import the html module to download payslips
 export default {
     data() {
     return {
-        payson: json,
+        payson: json,//using the imported json file in data
         num: null, // Initialize num to hold employee ID
-        bool: false,
+        bool: false,//boolean for logic switching.
     };
     },
     methods: {
@@ -75,7 +75,7 @@ export default {
         this.bool = !this.bool; // Toggle the display boolean
     },
     print(){
-        html2pdf(document.getElementById("displayBlock"),{
+        html2pdf(document.getElementById("displayBlock"),{//get element 'displyaBlock' and covert whatever is under this div to a pdf document under the filename 'payslip.pdf'
             margin: 1,
             filename:"payslip.pdf"
         })
