@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="https://media.istockphoto.com/id/1301534674/vector/initial-m-letter-symbol-vector-template.jpg?s=612x612&w=0&k=20&c=f2nRUXiSd5kkn_3CjSYtqFccjkAbZTqUFd0I1Gl7NhI=">
+    <img alt="Vue logo" src="../assets/mts_360.gif">
     <h2>Welcome to the Main App!</h2>
       <p>Here is some protected content.</p>
       
