@@ -1,16 +1,14 @@
 <template >
     <body>
-        
-    
     <div id="search employee">
            <label for="">Employee Id:</label> 
             <input  type="number" v-model="num" name="empid" id="empid">
-            <button @click="switcha">Search</button>
+            <button @click="switcha(num)">Search</button>
         
     </div>
     <div v-if="bool"  >
-        <div v-for="item, in payson.merge" :key="item"  >
-            <div v-if="item.employeeId == num"  >
+        <div v-for="item in $store.state.payroll" :key="item"  >
+            <!-- <div v-if="item.employeeId == num"  > -->
             <div id="heading">
                 <h2>Payslip</h2>
             </div>
@@ -22,7 +20,7 @@
               <p> Business Tel: 212-875-6890 </p>
             </div>
             <div id="employeeDetails">
-              <p>  Employee ID: {{item.employeeId}} </p>
+              <p>  Employee ID: {{item.employee_id}} </p>
               <p>  Employee Name: {{ item.name }} </p>
               <p>  Employee Position: {{ item.position }} </p>
               <p>  Employee Department: {{ item.department }} </p>
@@ -51,7 +49,7 @@
         <div>
             <button @click="print">Download Payslip</button>
         </div>
-        </div>
+        <!-- </div> -->
         </div>
 
     </div>
@@ -70,9 +68,14 @@ export default {
         bool: false,//boolean for logic switching.
     };
     },
+    // mounted(){   
+    //     this.$store.dispatch('getData',this.num)
+    // }
+    // ,
     methods: {
-    switcha() {
+    switcha(id) {
         this.bool = !this.bool; // Toggle the display boolean
+        this.$store.dispatch('getData',id)
     },
     print(){
         html2pdf(document.getElementById("displayBlock"),{//get element 'displyaBlock' and covert whatever is under this div to a pdf document under the filename 'payslip.pdf'

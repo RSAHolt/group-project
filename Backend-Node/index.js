@@ -4,7 +4,7 @@ import bodyParser from 'body-parser'
 import csurf from 'csurf'
 import cors from 'cors'
 // import routes that we exported
-import employeesRouter from './routes/employeesRouter.js'
+import payRouter from './routes/payRouter.js'
 
 const PORT = process.env.PORT ||3000
 const app = express()
@@ -13,7 +13,7 @@ app.use(cors({
 }))
 app.use(express.json())
 // path , imported file
-app.use('/employees', employeesRouter)
+app.use('/pay', payRouter)
 
 app.listen(PORT,()=>{
 console.log('http://localhost:'+PORT);
