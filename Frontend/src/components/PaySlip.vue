@@ -75,7 +75,7 @@ export default {
     methods: {
     switcha(id) {
         this.bool = !this.bool; // Toggle the display boolean
-        this.$store.dispatch('getData',id)
+        this.$store.dispatch('getPay',id)
     },
     print(){
         html2pdf(document.getElementById("displayBlock"),{//get element 'displyaBlock' and covert whatever is under this div to a pdf document under the filename 'payslip.pdf'

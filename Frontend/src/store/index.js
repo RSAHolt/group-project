@@ -14,11 +14,11 @@ export default createStore({
     }
   },
   actions: {
-    async getData({commit},id){
+    async getPay({commit},id){
       let {payroll} = await (await fetch('http://localhost:3000/pay/'+id)).json()
       // let info = await payroll.json()
-      commit('setPayroll',payroll)
-      console.log(id);
+      commit('setPayroll',payroll);
+      
       
     }
   },

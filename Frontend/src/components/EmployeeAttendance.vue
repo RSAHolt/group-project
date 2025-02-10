@@ -6,7 +6,7 @@
                     <th>Employee Id</th>
                     <th>Name</th>
                     <th>Attendance
-                        <button @click="show">{{shocks}}</button>
+                        
                     </th>
                     <th>Leave Requests</th>
                     
@@ -22,6 +22,7 @@
                                 <tr>
                                     <th> Date</th>
                                     <th> Status</th>
+                                    <th><button @click="show">{{shocks}}</button></th>
                                 </tr>
                             </thead>
                             <tbody v-show="bool" >
@@ -29,6 +30,7 @@
 
                                         <td >{{ inst.date }}</td>
                                         <td>{{ inst.status }}</td>
+                                        
                                    
                                 </tr>
                                
