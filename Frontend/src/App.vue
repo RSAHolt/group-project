@@ -11,13 +11,16 @@
             <router-link to="/">Home</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/pay">Payslip Summary</router-link>
+            <router-link to="/pay">Payslip-Summary</router-link>
           </li>
           <li>
             <router-link to="/about">About</router-link>
           </li>
           <li>
             <router-link to="/attendtrack">Attendance-Tracker</router-link>|
+          </li>
+          <li>
+            <router-link to="/employeelist">Employee-List</router-link>|
           </li>
 
           <!-- <li class="nav-item dropdown">
