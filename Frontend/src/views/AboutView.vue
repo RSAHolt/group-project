@@ -2,10 +2,10 @@
   <div class="about-container">
     <h1>ModernTech HR System</h1>
     
-    <section class="system-overview">
+    <section class="system-overview bordered-section">
       <h2>About the System</h2>
-      <p>Developed for ModernTech Solutions' global expansion initiative, this HR management system combines intuitive front-end design with robust back-end infrastructure to handle:</p>
-      <ul>
+      <p class="white-text">Developed for ModernTech Solutions' global expansion initiative, this HR management system combines intuitive front-end design with robust back-end infrastructure to handle:</p>
+      <ul class="white-text">
         <li>Multi-national employee data management</li>
         <li>Secure payroll processing</li>
         <li>Automated attendance tracking</li>
@@ -36,9 +36,9 @@
       </div>
     </section>
 
-    <section class="security-features">
+    <section class="security-features bordered-section">
       <h2>Security & Compliance</h2>
-      <ul>
+      <ul class="white-text">
         <li>GDPR-compliant data handling</li>
         <li>SHA-256 Password Encryption</li>
         <li>Two-Factor Authentication</li>
@@ -55,13 +55,12 @@
         </div>
         <div class="phase current">
           <h3>Phase 2 (Current)</h3>
-          <p>Production-Ready Backend with:
-            <ul>
-              <li>SQL Database Architecture</li>
-              <li>Automated Payroll Calculations</li>
-              <li>Internationalization Support</li>
-            </ul>
-          </p>
+          <div>Production-Ready Backend with:</div>
+          <ul>
+            <li>SQL Database Architecture</li>
+            <li>Automated Payroll Calculations</li>
+            <li>Internationalization Support</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -89,6 +88,17 @@ h1 {
   color: #2c3e50;
   border-bottom: 2px solid #42b983;
   padding-bottom: 0.5rem;
+}
+
+.white-text {
+  color: white; /* Set text color to white */
+}
+
+.bordered-section {
+  position: relative;
+  padding-left: 20px; /* Adjust padding for the border */
+  border-left: 3px solid #42b983; /* Add left border */
+  margin: 1.5rem 0; /* Space between sections */
 }
 
 .spec-grid {
