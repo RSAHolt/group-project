@@ -5,7 +5,7 @@ import csurf from 'csurf'
 import cors from 'cors'
 // import routes that we exported
 import payRouter from './routes/payRouter.js'
-
+import attendtrackRouter from './routes/attendtrackRouter.js'
 const PORT = process.env.PORT ||3000
 const app = express()
 app.use(cors({
@@ -14,6 +14,7 @@ app.use(cors({
 app.use(express.json())
 // path , imported file
 app.use('/pay', payRouter)
+app.use('/attendtrack',attendtrackRouter)
 
 app.listen(PORT,()=>{
 console.log('http://localhost:'+PORT);
