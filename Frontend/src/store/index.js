@@ -3,7 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     payroll:null,
-    attendtrack:null,
+    employees:null,
     log:false
   },
   getters: {
@@ -13,8 +13,8 @@ export default createStore({
       state.payroll = payload
 
     },
-    setAttend(){
-      
+    setAttend(state,payload){
+      state.employees= payload
     }
   },
   actions: {
@@ -26,11 +26,16 @@ export default createStore({
       
     },
     async getAttend({commit},payload){
-      let {payroll} = await (await fetch('http://localhost:3000/attendtrack/')).json()
+      let {employees} = await (await fetch('http://localhost:3000/attendtrack/')).json()
       
-      commit('setAttend',attendtrack);
+      commit('setAttend',employees);
       
       
+    },
+    async deleteEmployee({commit},id){
+      await fetch('http://localhost:3000/attendtrack/'+id,{
+        method:'DELETE'
+      })
     }
   },
   modules: {

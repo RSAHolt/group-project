@@ -1,8 +1,10 @@
 <template>
     <div>
+        {{ $store.state.employees}}
         <h2>Attendance Tracker</h2>
         <EmployeeAttendance/>
         <time-off-request @submit-request="submitRequest"></time-off-request>
+
         <div v-for="(request, index) in timeOffRequests" :key="index">
             <p>{{ request.employeeId }} - {{ request.date }}: {{ request.status }}</p>
             <button @click="approveRequest(index)">Approve</button>
@@ -14,18 +16,24 @@
 <script>
 import TimeOffRequest from './TimeOffRequest.vue';
 import EmployeeAttendance from './EmployeeAttendance.vue';
+import AttendanceReport from './AttendanceReport.vue';
 
 
 export default {
     components: {
         TimeOffRequest,
-        EmployeeAttendance
+        EmployeeAttendance,
+        AttendanceReport
     },
     data() {
         return {
             timeOffRequests: []
         };
     },
+    mounted(){   
+        this.$store.dispatch('getAttend')
+    }
+    ,
     methods: {
         submitRequest(employeeId, date) {
             this.timeOffRequests.push({ employeeId, date, status: 'Pending' });
