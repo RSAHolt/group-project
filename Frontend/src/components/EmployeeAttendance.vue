@@ -31,9 +31,9 @@
                                         <td >{{ inst.date }}</td>
                                         <td>{{ inst.status }}</td>
                                         
-                                   
+                                
                                 </tr>
-                               
+                            
                             </tbody>
                         </table>
                     </td>

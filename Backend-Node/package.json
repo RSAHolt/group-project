@@ -24,5 +24,9 @@
     "mysql2": "^3.12.0",
     "validator": "^13.12.0"
   },
-  "description": ""
+  "keywords": [],
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
 }
