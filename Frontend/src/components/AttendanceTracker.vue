@@ -1,5 +1,6 @@
 <template>
     <div>
+        
         <h2>Attendance Tracker</h2>
         <EmployeeAttendance/>
         <time-off-request @submit-request="submitRequest"></time-off-request>

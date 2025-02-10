@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import PaySlip from '@/components/PaySlip.vue'
 import AttendanceTracker from '@/components/AttendanceTracker.vue'
+import EmployeeList from '@/components/EmployeeList.vue'
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
     path: '/attendtrack',
     name: 'attendtrack',
     component: AttendanceTracker
+  },
+  {
+    path: '/employeelist',
+    name: 'employeelist',
+    component: EmployeeList
   }
 ]
 
