@@ -1,7 +1,7 @@
 <template >
     <body>
     <div id="search employee">
-           <label for="">Employee Id:</label> 
+        <label for="">Employee Id:</label> 
             <input  type="number" v-model="num" name="empid" id="empid">
             <button @click="switcha(num)">Search</button>
         
@@ -14,35 +14,35 @@
             </div>
             <div id="displayBlock" ref="document" >
             <div id="companyDetails">
-              <p> Co. Name: ModernTech Solutions  </p>
-              <p> Co. Address: 1st Floor, Cradock Heights, 22 Cradock Avenue Rosebank
+            <p> Co. Name: ModernTech Solutions  </p>
+            <p> Co. Address: 1st Floor, Cradock Heights, 22 Cradock Avenue Rosebank
                     Johannesburg, South Africa </p>
-              <p> Business Tel: 212-875-6890 </p>
+            <p> Business Tel: 212-875-6890 </p>
             </div>
             <div id="employeeDetails">
-              <p>  Employee ID: {{item.employee_id}} </p>
-              <p>  Employee Name: {{ item.name }} </p>
-              <p>  Employee Position: {{ item.position }} </p>
-              <p>  Employee Department: {{ item.department }} </p>
+            <p>  Employee ID: {{item.employee_id}} </p>
+            <p>  Employee Name: {{ item.name }} </p>
+            <p>  Employee Position: {{ item.position }} </p>
+            <p>  Employee Department: {{ item.department }} </p>
 
             </div>
             <div id="paymentDetails">
-              <p>  Date Enaged:{{ da }} </p>
-              <p>  Bank Name: Capitec </p>
-              <p>  Account Type: Cheque</p>
-              <p>  Account No: 4206911</p>
-              <p>  Branch Code: 470010 </p>
-              <p>  Hourly Rate: R{{ Math.round(item.salary/item.hoursWorked) }}/hr </p>
+            <p>  Date Enaged:{{ da }} </p>
+            <p>  Bank Name: Capitec </p>
+            <p>  Account Type: Cheque</p>
+            <p>  Account No: 4206911</p>
+            <p>  Branch Code: 470010 </p>
+            <p>  Hourly Rate: R{{ Math.round(item.salary/item.hoursWorked) }}/hr </p>
             </div>
             <div id="earnings">
-              <p>  Salary: R{{ item.salary }} </p>
+            <p>  Salary: R{{ item.salary }} </p>
             </div>
             <div id="deductions">
-               <p> Leave Days: {{ item.leaveDeductions }} </p>
-               <p> Deducted: R{{ item.salary - item.finalSalary }}</p>
+            <p> Leave Days: {{ item.leaveDeductions }} </p>
+            <p> Deducted: R{{ item.salary - item.finalSalary }}</p>
             </div>
             <div id="netPay">
-               <p> Nett Pay: R{{ item.finalSalary }} </p>
+            <p> Nett Pay: R{{ item.finalSalary }} </p>
             </div>
             
         </div>
@@ -100,7 +100,7 @@ export default {
 
             return `${day}/${month}/${year}`//using f-string literal to display info when 'da()' is called.
         }
-   
+
     }}
 </script>
 <style scoped >
@@ -164,7 +164,7 @@ body{
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+-webkit-appearance: none;
+margin: 0;
 }
 </style>
