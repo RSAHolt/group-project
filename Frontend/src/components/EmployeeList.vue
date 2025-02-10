@@ -10,7 +10,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-for="employee in employees" :key="employee.employee_id">
+        <tr v-for="employee in $store.state.employees" :key="employee.employee_id">
             <td>{{ employee.employee_id }}</td>
             <td>{{ employee.name }}</td>
             <td>{{ employee.position }}</td>
@@ -28,8 +28,11 @@
 
 <script>
 export default {
-    props: ['employees']
-};
+    mounted(){
+        this.$store.dispatch('getAttend')
+    }
+    // props: ['employees']
+    };
 </script>
 
 <style scoped >
