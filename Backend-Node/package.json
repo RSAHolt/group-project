@@ -25,12 +25,8 @@
     "validator": "^13.12.0"
   },
   "keywords": [],
-<<<<<<< HEAD
-  "description": ""
-=======
-  "description": "",
   "devDependencies": {
     "nodemon": "^3.1.9"
-  }
->>>>>>> 8806e5df8e09ece8c144cb634426a71d05fe5a98
+  },
+  "description": ""
 }

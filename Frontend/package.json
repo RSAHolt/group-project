@@ -15,10 +15,7 @@
     "html2pdf.js": "^0.10.2",
     "register-service-worker": "^1.7.2",
     "run": "^1.5.0",
-<<<<<<< HEAD
-=======
     "serve": "^14.2.4",
->>>>>>> 8806e5df8e09ece8c144cb634426a71d05fe5a98
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
