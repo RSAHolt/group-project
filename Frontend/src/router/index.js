@@ -29,11 +29,6 @@ const routes = [
     component: AttendanceTracker
   },
   {
-    path: '/attendtrack',
-    name: 'attendtrack',
-    component: AttendanceTracker
-  },
-  {
     path: '/employeelist',
     name: 'employeelist',
     component: EmployeeList

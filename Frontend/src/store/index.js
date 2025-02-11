@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { createStore } from 'vuex'
 
 export default createStore({
@@ -51,14 +52,16 @@ export default createStore({
       location.reload()
     },
     async patchEmployee({commit},patch){
-      await fetch('http://localhost:3000/attendtrack/${patch.employee_id}',{
+      console.log(patch);
+      
+      await fetch('http://localhost:3000/attendtrack/'+patch.employee_id,{
         method:'PATCH',
         headers:{
           "Content-Type":"application/json"
         },
         body:JSON.stringify(patch)
       })
-      location.reload()
+      // location.reload()
 
     }
   },

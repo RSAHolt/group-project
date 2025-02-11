@@ -18,7 +18,7 @@
             <td>
             <!-- <button @click="updateEmployee(employee.employee_id)" class="crud-btn update">Update</button> -->
             <button @click="deleteEmployee(employee.employee_id)" class="crud-btn delete">Delete</button>
-            <!-- <button @click="addEmployee" class="crud-btn add">Add</button> -->
+            <update-modal/>
             </td>
         </tr>
         </tbody>
@@ -57,7 +57,7 @@
 </form>
 
 <h2>Change Employee Information</h2>
-<form >
+<form @submit.prevent="" >
   <table class="form-table">
     <tr>
       <td><label for="employee_id">Employee_id:</label></td>
@@ -91,8 +91,9 @@
   </table>
 </form>
 </template>
-{{name}}
+
 <script>
+import UpdateModal from './UpdateModal.vue';
 export default {
     data() {
         return {
@@ -113,6 +114,9 @@ export default {
             }
             
         }
+    },
+    components:{
+      UpdateModal
     },
     mounted(){
         this.$store.dispatch('getAttend')

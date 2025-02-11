@@ -14,9 +14,11 @@ const getEmployeeIdCon = async(req,res)=>{
  }
 
  const updateEmployeeCon = async (req,res)=>{
-   let {employee_id}=req.params
+   console.log(req.params);
+   
+   let {id}=req.params
    let {name, position, department, salary,contact} = req.body
-    res.json({employees:await updateEmployee(name, position, department, salary, contact,employee_id)})
+    res.json({employees:await updateEmployee(name, position, department, salary, contact,id)})
  }
 
  const deleteEmployeeCon = async(req,res)=>{

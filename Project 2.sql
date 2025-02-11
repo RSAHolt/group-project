@@ -34,6 +34,16 @@ CREATE TABLE `modernsolutions_db`.`modern_employees` (
   `reason` VARCHAR(45) NOT NULL,
   `status` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`leaveRequestId`));
+  
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
 
   
   INSERT INTO `modernsolutions_db`.`modern_employees` (`employee_id`, `name`, `position`, `department`, `salary`, `contact`)
@@ -63,7 +73,7 @@ VALUES ('1', '160', '8', '69650');
 INSERT INTO `modernsolutions_db`.`payroll` (`employee_id`, `hoursWorked`, `leaveDeductions`, `finalSalary`)
 VALUES ('2', '150', '10', '79000');
 INSERT INTO `modernsolutions_db`.`payroll` (`employee_id`, `hoursWorked`, `leaveDeductions`, `finalSalary`)
-VALUES ('3', '170', '4', '54800');
+VALUES ('3', '170', '4', '544800');
 INSERT INTO `modernsolutions_db`.`payroll` (`employee_id`, `hoursWorked`, `leaveDeductions`, `finalSalary`)
 VALUES ('4', '165', '6', '59700');
 INSERT INTO `modernsolutions_db`.`payroll` (`employee_id`, `hoursWorked`, `leaveDeductions`, `finalSalary`)
@@ -209,7 +219,15 @@ VALUES ( '10', 'Fatima Patel', '2024-11-27', 'Absent');
 INSERT INTO `modernsolutions_db`.`attendance_data` ( `employee_id`, `name`, `date`, `status`)
 VALUES ( '10', 'Fatima Patel', '2024-11-28', 'Present');
 
+-- DELETE FROM `modernsolutions_db`.`modern_employees` WHERE employee_id = 1;
+-- DELETE FROM `modernsolutions_db`.`payroll` WHERE employee_id = 1;
+-- DELETE FROM `modernsolutions_db`.`leaverequestid` WHERE employee_id = 1;
+-- DELETE FROM `modernsolutions_db`.`attendance_data` WHERE employee_id = 1;
 
-INSERT INTO `modernsolutions_db`.`modern_employees` (name, position, department, salary, contact) 
-VALUES ('Luke Smart', 'Intern','IT','4750','lukejsmart@moderntech.co.za');
+-- UPDATE `modernsolutions_db`.`modern_employees`
+--  SET name = 'Luke Smart', position = 'Deleted', department = 'IT', salary = '4750', contact ='lukejsmart@moderntech.co.za' 
+--  WHERE employee_id = 15;
+
+
+
 
