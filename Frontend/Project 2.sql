@@ -34,8 +34,8 @@ CREATE TABLE `moderntechsolutions_db`.`modern_employees` (
   PRIMARY KEY (`leaveRequestId`));
 
   
-  INSERT INTO `moderntechsolutions_db`.`modern_employees` (`employee_id`, `name`, `position`, `department`, `salary`, `contact`)
-  VALUES ('1', 'Sibongile Nkosi', 'Software Engineer', 'Development', '70000', 'sibongile.nkosi@moderntech.com');
+INSERT INTO `moderntechsolutions_db`.`modern_employees` (`employee_id`, `name`, `position`, `department`, `salary`, `contact`)
+VALUES ('1', 'Sibongile Nkosi', 'Software Engineer', 'Development', '70000', 'sibongile.nkosi@moderntech.com');
 INSERT INTO `moderntechsolutions_db`.`modern_employees` (`employee_id`, `name`, `position`, `department`, `salary`, `contact`)
 VALUES ('2', 'Lungile Moyo', 'HR Manager', 'HR', '80000', 'lungile.moyo@moderntech.com');
 INSERT INTO `moderntechsolutions_db`.`modern_employees` (`employee_id`, `name`, `position`, `department`, `salary`, `contact`)
