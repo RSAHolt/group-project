@@ -36,6 +36,30 @@ export default createStore({
       await fetch('http://localhost:3000/attendtrack/'+id,{
         method:'DELETE'
       })
+      location.reload()
+    },
+    async postEmployee({commit},post){
+      await fetch('http://localhost:3000/attendtrack/',{
+        method:'POST',
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify(
+        post
+        )
+      })
+      location.reload()
+    },
+    async patchEmployee({commit},patch){
+      await fetch('http://localhost:3000/attendtrack/${patch.employee_id}',{
+        method:'PATCH',
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify(patch)
+      })
+      location.reload()
+
     }
   },
   modules: {

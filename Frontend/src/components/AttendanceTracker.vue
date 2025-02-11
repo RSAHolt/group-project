@@ -15,14 +15,14 @@
 <script>
 import TimeOffRequest from './TimeOffRequest.vue';
 import EmployeeAttendance from './EmployeeAttendance.vue';
-import AttendanceReport from './AttendanceReport.vue';
+// import AttendanceReport from './AttendanceReport.vue';
 
 
 export default {
     components: {
         TimeOffRequest,
-        EmployeeAttendance,
-        AttendanceReport
+        EmployeeAttendance
+        // ,AttendanceReport
     },
     data() {
         return {

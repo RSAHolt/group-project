@@ -14,7 +14,8 @@ const getEmployeeIdCon = async(req,res)=>{
  }
 
  const updateEmployeeCon = async (req,res)=>{
-    let {name, position, department, salary, contact,employee_id} = req.body
+   let {employee_id}=req.params
+   let {name, position, department, salary,contact} = req.body
     res.json({employees:await updateEmployee(name, position, department, salary, contact,employee_id)})
  }
 

@@ -21,5 +21,6 @@ const insertEmployee= async(name, position, department, salary, contact) => {
 
 const updateEmployee = async(name, position, department, salary, contact,employee_id) => {
     await pool.query("UPDATE `modernsolutions_db`.`modern_employees` SET name = ?, position = ?, department = ?, salary = ?, contact =? WHERE employee_id = ?",[name, position, department, salary, contact, employee_id])
+    return {name, position, department, salary, contact, employee_id}
 };
 export {getEmployees,getEmployeeId,insertEmployee,deleteEmployee,updateEmployee}

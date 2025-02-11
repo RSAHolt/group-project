@@ -3,7 +3,7 @@ CREATE DATABASE modernsolutions_db;
 USE modernsolutions_db;
 
 CREATE TABLE `modernsolutions_db`.`modern_employees` (
-    `employee_id` INT NOT NULL,
+    `employee_id` INT NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(45) NOT NULL,
     `position` VARCHAR(45) NOT NULL,
     `department` VARCHAR(45) NOT NULL,
@@ -63,7 +63,7 @@ VALUES ('1', '160', '8', '69650');
 INSERT INTO `modernsolutions_db`.`payroll` (`employee_id`, `hoursWorked`, `leaveDeductions`, `finalSalary`)
 VALUES ('2', '150', '10', '79000');
 INSERT INTO `modernsolutions_db`.`payroll` (`employee_id`, `hoursWorked`, `leaveDeductions`, `finalSalary`)
-VALUES ('3', '170', '4', '544800');
+VALUES ('3', '170', '4', '54800');
 INSERT INTO `modernsolutions_db`.`payroll` (`employee_id`, `hoursWorked`, `leaveDeductions`, `finalSalary`)
 VALUES ('4', '165', '6', '59700');
 INSERT INTO `modernsolutions_db`.`payroll` (`employee_id`, `hoursWorked`, `leaveDeductions`, `finalSalary`)
@@ -210,5 +210,6 @@ INSERT INTO `modernsolutions_db`.`attendance_data` ( `employee_id`, `name`, `dat
 VALUES ( '10', 'Fatima Patel', '2024-11-28', 'Present');
 
 
-
+INSERT INTO `modernsolutions_db`.`modern_employees` (name, position, department, salary, contact) 
+VALUES ('Luke Smart', 'Intern','IT','4750','lukejsmart@moderntech.co.za');
 
